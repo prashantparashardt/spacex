@@ -26,6 +26,7 @@ img {
 }
 
 .card_details_common {
+  padding-left: 2px;
   background-color: white;
   font-size: 18px;
   font-weight: 600;
