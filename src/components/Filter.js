@@ -35,7 +35,7 @@ function Filter (props) {
               return (
                 <div
                   className={
-                    props.launchYear === year
+                    props.launchYear == year
                       ? 'year_button selected'
                       : 'year_button'
                   }
