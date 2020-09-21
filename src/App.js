@@ -7,7 +7,7 @@ import Filter from './components/Filter'
 function App () {
   const [state, setState] = useState({
     cardData: null,
-    url: 'https://api.spaceXdata.com/v3/launches?limit=100',
+    url: 'https://api.spaceXdata.com/v3/launches?limit=1000',
     launch_success: null,
     land_success: null,
     launch_year: null
@@ -88,15 +88,17 @@ function App () {
           landSuccess={state.land_success}
         />
         {state.cardData ? (
-          <Cards cardData={state.cardData} />
+          state.cardData.data.length > 0 ? (
+            <Cards cardData={state.cardData} />
+          ) : (
+            'new'
+          )
         ) : (
-          // <img
-          //   src='https://giffiles.alphacoders.com/166/16607.gif'
-          //   width='250px'
-          //   height='250px'
-          //   alt='loader'
-          // />
-          'loading'
+          <img
+            className='app_img'
+            src='https://media.giphy.com/media/xT8qBhrlNooHBYR9f2/giphy.gif'
+            alt='loader'
+          />
         )}
       </div>
       <h2 className='bottom_div'>Developed By: Prashant Parashar</h2>

@@ -1,8 +1,31 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 * {
   margin: 0;
   background-color: #f2f2f2;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.app_img {
+  flex: 0.85 1;
+  height: 656px;
+  display: flex;
+  flex-wrap: wrap;
+  /* height: object-fit; */
+  justify-content: flex-start;
+}
+
+@media screen and (max-width: 700px) {
+  .app_img {
+    font-size: 23px;
+    width: 84%;
+    height: 644px;
+    border-radius: 8px;
+    padding: 15px;
+    margin: auto;
+    margin-bottom: 20px;
+    background-color: white;
+    height: fit-content;
+  }
 }
 
 .app_page {
