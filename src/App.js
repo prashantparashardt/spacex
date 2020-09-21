@@ -10,7 +10,8 @@ function App () {
     url: 'https://api.spaceXdata.com/v3/launches?limit=100',
     launch_success: null,
     land_success: null,
-    launch_year: null
+    launch_year: null,
+    key: 0
   })
   const getUrlParam = url => {
     let params = new URLSearchParams(document.location.search.substring(1))
@@ -27,27 +28,28 @@ function App () {
     if (year) {
       stateUrl = stateUrl + `&launch_year=${year}`
     }
-    setState({
+   setState({
       url: stateUrl,
       launch_success: launch,
       land_success: land,
-      launch_year: year
+      launch_year: year,
+      key: 1
     })
   }
  
   useEffect(() => {
-    if (state.cardData === null) {
-      getUrlParam(state.url)
-    } else {
-      const fetchDataForFirstTime = async () => {
-        const response = await axios.get(state.url)
+    getUrlParam(state.url)
+  }, [])
+  
+ useEffect(() => {
+    if (state.key > 0) {
+      axios.get(state.url).then(response => {
         setState(prevState => {
           return { ...prevState, cardData: response }
         })
-      }
-      fetchDataForFirstTime()
+      })
     }
-  }, [state])
+  }, [state.url, state.key])
 
   const clickFilter = (buttonClicked, filterName) => {
     let stateUrl = new URL(state.url)
