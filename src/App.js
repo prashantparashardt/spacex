@@ -7,7 +7,7 @@ import Filter from './components/Filter'
 function App () {
   const [state, setState] = useState({
     cardData: null,
-    url: 'https://api.spaceXdata.com/v3/launches?limit=1000',
+    url: 'https://api.spaceXdata.com/v3/launches?limit=100',
     launch_success: null,
     land_success: null,
     launch_year: null
