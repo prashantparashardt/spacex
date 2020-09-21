@@ -34,20 +34,20 @@ function App () {
       launch_year: year
     })
   }
+ 
   useEffect(() => {
-    getUrlParam(state.url)
-  }, [])
-
-  useEffect(() => {
-    console.log('useeffect')
-    const fetchDataForFirstTime = async () => {
-      const response = await axios.get(state.url)
-      setState(prevState => {
-        return { ...prevState, cardData: response }
-      })
+    if (state.cardData === null) {
+      getUrlParam(state.url)
+    } else {
+      const fetchDataForFirstTime = async () => {
+        const response = await axios.get(state.url)
+        setState(prevState => {
+          return { ...prevState, cardData: response }
+        })
+      }
+      fetchDataForFirstTime()
     }
-    fetchDataForFirstTime()
-  }, [state.url])
+  }, [state])
 
   const clickFilter = (buttonClicked, filterName) => {
     let stateUrl = new URL(state.url)
@@ -91,7 +91,9 @@ function App () {
           state.cardData.data.length > 0 ? (
             <Cards cardData={state.cardData} />
           ) : (
-            'new'
+            <div className='app_img' style={{ alignContent: 'center' }}>
+              <h1>No data found on the server</h1>
+            </div>
           )
         ) : (
           <img
