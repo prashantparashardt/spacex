@@ -30,4 +30,4 @@ app is hosted here - https://spacexitx.herokuapp.com/
 
 ## LightHouse Report
 
-![LightHouse Report](https://github.com/prashantparashardt/spacex//tree/master/public/LightHouse%20Report.PNG)
+![LightHouse Report](https://github.com/prashantparashardt/spacex/blob/master/public/LightHouse%20Report.PNG)
